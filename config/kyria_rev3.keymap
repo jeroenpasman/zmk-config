@@ -25,18 +25,19 @@
 		* ,-------------------------------------------.                              ,-------------------------------------------.
 		* |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
 		* |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
-		* |LShift/Esc| A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  ' "   |
+		* |LShift/ | A    |   S  |   D  |Shift/|   G  |                              |   H  |Shift/|   K  |   L  | ;  : |  ' "   |
+		* |  Esc   |      |      |      |   F  |      |								 |      |   J  |      |      |      |        |
 		* |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
-		* | Ctrl   |   Z  |   X  |   C  |   V  |   B  | [ {  | CAPS |  | FUNC |  ] } |   N  |   M  | ,  < | . >  | /  ? | Enter  |
+		* | Ctrl   |   Z  |   X  |   C  |   V  |   B  | [ {  | CAPS |  |VolMut|  ] } |   N  |   M  | ,  < | . >  | /  ? | Enter  |
 		* `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
-		*                        |LGUI  | LALT | Enter| NUM  | Nav  |  | Sym  | Space| BSPC | TAB  | RGUI |
+		*                        |LGUI  | LALT | FUNC | NUM  | Nav  |  | Sym  | Space| BSPC | TAB  | RGUI |
 		*                        `----------------------------------'  `----------------------------------'
 		*/
 		 bindings = <
-			&kp TAB   	   &kp Q    &kp W   &kp E 	 &kp R 	  &kp T                                            	 &kp Y    &kp U   &kp I     &kp O   &kp P    &kp BSPC
-            &mt LSHIFT ESC &kp A    &kp S   &kp D 	 &kp F 	  &kp G                                            	 &kp H    &kp J   &kp K     &kp L   &kp SEMI &kp APOS
-            &kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp V 	  &kp B   &kp LBKT  &kp CAPS     &mo FUNC &kp RBKT 	 &kp N    &kp M   &kp COMMA &kp DOT &kp FSLH &kp RET
-								 		    &kp LGUI &kp LALT &kp RET &mo NUM   &mo NAV      &mo SYM  &kp SPACE  &kp BSPC &kp TAB &kp RGUI
+			&kp TAB   	   &kp Q    &kp W   &kp E 	 &kp R 	      &kp T                                            	    &kp Y    &kp U   	   &kp I     &kp O   &kp P    &kp BSPC
+            &mt LSHIFT ESC &kp A    &kp S   &kp D 	 &mt LSHIFT F &kp G                                            	    &kp H    &mt LSHIFT J &kp K     &kp L   &kp SEMI &kp APOS
+            &kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp V 	      &kp B    &kp LBKT  &kp CAPS     &mo C_MUTE &kp RBKT 	&kp N    &kp M   	   &kp COMMA &kp DOT &kp FSLH &kp RET
+								 		    &kp LGUI &kp LALT     &kp FUNC &mo NUM   &mo NAV      &mo SYM    &kp SPACE  &kp BSPC &kp TAB 	   &kp RGUI
 		 >;
 
          sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -74,17 +75,17 @@
 			 * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
 			 * |        |  ←   |   ↓  |   →  |      |      |                              |   *  |  4   |  5   |  6   |  +   |        |
 			 * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
-			 * |        | Shift| Ctrl |  Alt |  GUI |      |      |      |  |      |      |   =  |  1   |  2   |  3   | ENTER|        |
+			 * |        |  GUI |  Alt | Ctrl | Shift|      |      |      |  |      |      |   =  |  1   |  2   |  3   | ENTER|        |
 			 * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
 			 *                        |      |      |      |      |      |  |      |   0  |  .   |      |      |
 			 *                        |      |      |      |      |      |  |      |      |      |      |      |
 			 *                        `----------------------------------'  `----------------------------------'
 			 */
 			bindings = <
-			  &none &none      &kp UP    &none     &none    &none                                &kp FSLH  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp MINUS &kp BSPC 
-			  &none &kp LEFT   &kp DOWN  &kp RIGHT &none    &none                                &kp ASTRK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp PLUS  &none
-			  &none &kp RSHIFT &kp RCTRL &kp LALT  &kp RGUI &none &none &none 	 &none &none 	 &kp EQUAL &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp RET   &none
-										 &none     &none 	&none &none &none	 &none &kp KP_N0 &kp DOT   &none 	 &none
+			  &none &none      &kp UP    &none     &none      &none                                  &kp FSLH  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp MINUS &kp BSPC 
+			  &none &kp LEFT   &kp DOWN  &kp RIGHT &none      &none                                  &kp ASTRK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp PLUS  &none
+			  &none &kp LGUI   &kp LALT  &kp LCTRL &kp LSHIFT &none &none &none 	 &none &none 	 &kp EQUAL &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp RET   &none
+										 &none     &none 	  &none &none &none	 	 &none &kp KP_N0 &kp DOT   &none 	 &none
 			>;
 		};
 		
@@ -93,21 +94,21 @@
 			 * Sym Layer: Numbers and symbols
 			 *
 			 * ,-------------------------------------------.                              ,-------------------------------------------.
-			 * |    `   |  !   |  @   |  #   |  $   |  %   |                              |   ^  |  &   |  *   |  (   |  )   |   =    |
+			 * |    `   |  1   |  2   |  3   |  4   |  5   |                              |   6  |  7   |  8   |  9   |  0   |   =    |
 			 * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
-			 * |    ~   |  1   |  2   |  3   |  4   |  5   |                              |   6  |  7   |  8   |  9   |  0   |   +    |
+			 * |    ~   |  !   |  @   |  #   |  $   |  %   |                              |   ^  |  &   |  *   |  (   |  )   |   +    |
 			 * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
 			 * |    |   |   \  |  :   |  ;   |  -   |  [   |  {   |      |  |      |   }  |   ]  |  _   |  ,   |  .   |  /   |   ?    |
 			 * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
-			 *                        |      |      |      |      |      |  |      |      |      |      |      |
+			 *                        |  [   |  {   |   }  |   ]  |      |  |      |      |      |      |      |
 			 *                        |      |      |      |      |      |  |      |      |      |      |      |
 			 *                        `----------------------------------'  `----------------------------------'
 			 */
 			bindings = <
-			  &kp TILDE &kp EXCL &kp AT    &kp HASH &kp DLLR  &kp PRCNT                                 &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp EQUAL 
-			  &kp GRAVE &kp N1   &kp N2    &kp N3   &kp N4    &kp N5                                    &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp PLUS
+			  &kp TILDE &kp N1   &kp N2    &kp N3   &kp N4    &kp N5                                    &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp EQUAL 
+			  &kp GRAVE &kp EXCL &kp AT    &kp HASH &kp DLLR  &kp PRCNT                                 &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp PLUS
 			  &kp PIPE  &kp BSLH &kp COLON &kp SEMI &kp MINUS &kp LBKT &kp LBRC &none 	 &none &kp RBRC &kp RBKT  &kp UNDER &kp COMMA &kp DOT  &kp FSLH &kp QMARK
-										   &none 	&none 	  &none	   &none 	&none	 &none &none 	&none 	  &none 	&none
+										   &kp LBKT &kp LBRC  &kp RBRC &kp RBKT &none	 &none &none 	&none 	  &none 	&none
 			>;
 		};
 		
@@ -116,21 +117,21 @@
 			 * Function Layer: Function keys
 			 *
 			 * ,-------------------------------------------.                              ,-------------------------------------------.
-			 * |        |  F9  | F10  | F11  | F12  |      |                              |      |      |      |      |      |        |
+			 * |        |      |      |      |      |      |                              |      |  F9  | F10  | F11  | F12  |        |
 			 * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
-			 * |        |  F5  |  F6  |  F7  |  F8  |      |                              |      | Shift| Ctrl |  Alt |  GUI |        |
+			 * |        |  GUI |  Alt | Ctrl | Shift|      |                              |      |  F5  |  F6  |  F7  |  F8  |        |
 			 * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
-			 * |        |  F1  |  F2  |  F3  |  F4  |      |      |      |  |      |      |      |      |      |      |      |        |
+			 * |        |      |      |      |      |      |      |      |  |      |      |      |  F1  |  F2  |  F3  |  F4  |        |
 			 * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
 			 *                        |      |      |      |      |      |  |      |      |      |      |      |
 			 *                        |      |      |      |      |      |  |      |      |      |      |      |
 			 *                        `----------------------------------'  `----------------------------------'
 			 */
 			bindings = <
-			  &none  &kp F9  &kp F10 &kp F11 &kp F12 &none                           &none &none 	  &none	    &none    &none    &none
-			  &none  &kp F5  &kp F6  &kp F7  &kp F8  &none                           &none &kp RSHIFT &kp RCTRL &kp LALT &kp RGUI &none
-			  &none  &kp F1  &kp F2  &kp F3  &kp F4  &none &none &none	 &none &none &none &none	  &none 	&none 	 &none	  &none
-										 &none &none &none &none &none	 &none &none &none &none	  &none
+			  &none &none  	   &none	 &none 	   &none      &none                           &none  &kp F9  &kp F10 &kp F11 &kp F12 &none
+			  &none &kp LGUI   &kp LALT  &kp LCTRL &kp LSHIFT &none                           &none  &kp F5  &kp F6  &kp F7  &kp F8  &none
+			  &none &none      &none 	 &none 	   &none      &none &none &none	  &none &none &none  &kp F1  &kp F2  &kp F3  &kp F4  &none
+										 &none 	   &none      &none &none &none	  &none &none &none  &none	 &none
 			>;
 		};
 		
