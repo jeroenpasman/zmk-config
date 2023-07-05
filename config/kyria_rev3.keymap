@@ -33,10 +33,10 @@
 		*                        `----------------------------------'  `----------------------------------'
 		*/
 		 bindings = <
-			&kp TAB   	  &kp Q    &kp W   &kp E 	 &kp R 	  &kp T                                            	 &kp Y    &kp U   &kp I     &kp O   &kp P    &kp BSPC
-            &mt LSHFT ESC &kp A    &kp S   &kp D 	 &kp F 	  &kp G                                            	 &kp H    &kp J   &kp K     &kp L   &kp SEMI &kp SQT
-            &kp LCTRL 	  &kp Z    &kp X   &kp C 	 &kp V 	  &kp B   &kp LBKT  &kp CAPS     &mo FUNC &kp RBKT 	 &kp N    &kp M   &kp COMMA &kp DOT &kp FSLH &kp RET
-										   &kp LGUI  &kp LAlt &kp RET &mo NUM   &mo NAV      &mo SYM  &kp SPACE  &kp BSPC &kp TAB &kp RGUI
+			&kp TAB   	   &kp Q    &kp W   &kp E 	 &kp R 	  &kp T                                            	 &kp Y    &kp U   &kp I     &kp O   &kp P    &kp BSPC
+            &mt LSHIFT ESC &kp A    &kp S   &kp D 	 &kp F 	  &kp G                                            	 &kp H    &kp J   &kp K     &kp L   &kp SEMI &kp APOS
+            &kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp V 	  &kp B   &kp LBKT  &kp CAPS     &mo FUNC &kp RBKT 	 &kp N    &kp M   &kp COMMA &kp DOT &kp FSLH &kp RET
+								 		    &kp LGUI &kp LAlt &kp RET &mo NUM   &mo NAV      &mo SYM  &kp SPACE  &kp BSPC &kp TAB &kp RGUI
 		 >;
 
          sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
