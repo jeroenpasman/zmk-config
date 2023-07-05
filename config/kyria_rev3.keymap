@@ -81,7 +81,7 @@
 			 *                        `----------------------------------'  `----------------------------------'
 			 */
 			bindings = <
-			  &none &none      &kp UP    &none     &none    &none                                &kp FSLH  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp MIUNS &kp BSPC 
+			  &none &none      &kp UP    &none     &none    &none                                &kp FSLH  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp MINUS &kp BSPC 
 			  &none &kp LEFT   &kp DOWN  &kp RIGHT &none    &none                                &kp ASTRK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp PLUS  &none
 			  &none &kp RSHIFT &kp RCTRL &kp LALT  &kp RGUI &none &none &none 	 &none &none 	 &kp EQUAL &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp RET   &none
 										 &none     &none 	&none &none &none	 &none &kp KP_N0 &DOT 	   &none 	 &none
