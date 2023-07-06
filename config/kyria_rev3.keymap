@@ -14,6 +14,11 @@
 #define SYM     3
 #define FUNC    4
 
+&mt {
+  tapping-term-ms = <200>;
+  flavor = "tap-preferred";
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -30,14 +35,14 @@
 		* |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
 		* | Ctrl   |   Z  |   X  |   C  |   V  |   B  | [ {  | CAPS |  |VolMut|  ] } |   N  |   M  | ,  < | . >  | /  ? | Enter  |
 		* `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
-		*                        |LGUI  | LALT | FUNC | NUM  | Nav  |  | Sym  | Space| BSPC | TAB  | RGUI |
+		*                        |LGUI  | LALT | FUNC | NUM  | Nav  |  |Sym/RET| Space| BSPC | TAB  | RGUI |
 		*                        `----------------------------------'  `----------------------------------'
 		*/
 		 bindings = <
 			&kp TAB   	   &kp Q    &kp W   &kp E 	 &kp R 	      &kp T                                            	    &kp Y    &kp U   	   &kp I     &kp O   &kp P    &kp BSPC
             &mt LSHIFT ESC &kp A    &kp S   &kp D 	 &mt LSHIFT F &kp G                                            	    &kp H    &mt LSHIFT J  &kp K     &kp L   &kp SEMI &kp APOS
-            &kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp V 	      &kp B    &kp LBKT  &kp CAPS     &kp C_MUTE &kp RBKT 	&kp N    &kp M   	   &kp COMMA &kp DOT &kp FSLH &kp RET
-								 		    &kp LGUI &kp LALT     &mo FUNC &mo NUM   &mo NAV      &mo SYM    &kp SPACE  &kp BSPC &kp TAB 	   &kp RGUI
+            &kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp V 	      &kp B    &kp LBKT  &kp CAPS     &kp C_MUTE  &kp RBKT 	&kp N    &kp M   	   &kp COMMA &kp DOT &kp FSLH &kp RET
+								 		    &kp LGUI &kp LALT     &mo FUNC &mo NUM   &mo NAV      &lt SYM RET &kp SPACE &kp BSPC &kp TAB 	   &kp RGUI
 		 >;
 
          sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -100,15 +105,15 @@
 			 * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
 			 * |    |   |   \  |  :   |  ;   |  -   |  [   |  {   |      |  |      |   }  |   ]  |  _   |  ,   |  .   |  /   |   ?    |
 			 * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
-			 *                        |  [   |  {   |   }  |   ]  |      |  |      |      |      |      |      |
+			 *                        |  [   |  {   |   }  |   ]  |  _   |  |      |      |      |      |      |
 			 *                        |      |      |      |      |      |  |      |      |      |      |      |
 			 *                        `----------------------------------'  `----------------------------------'
 			 */
 			bindings = <
-			  &kp TILDE &kp N1   &kp N2    &kp N3   &kp N4    &kp N5                                    &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp EQUAL 
-			  &kp GRAVE &kp EXCL &kp AT    &kp HASH &kp DLLR  &kp PRCNT                                 &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp PLUS
-			  &kp PIPE  &kp BSLH &kp COLON &kp SEMI &kp MINUS &kp LBKT &kp LBRC &none 	 &none &kp RBRC &kp RBKT  &kp UNDER &kp COMMA &kp DOT  &kp FSLH &kp QMARK
-										   &kp LBKT &kp LBRC  &kp RBRC &kp RBKT &none	 &none &none 	&none 	  &none 	&none
+			  &kp TILDE &kp N1   &kp N2    &kp N3   &kp N4    &kp N5                                 	    &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp EQUAL 
+			  &kp GRAVE &kp EXCL &kp AT    &kp HASH &kp DLLR  &kp PRCNT                                		&kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp PLUS
+			  &kp PIPE  &kp BSLH &kp COLON &kp SEMI &kp MINUS &kp LBKT &kp LBRC &none 		 &none &kp RBRC &kp RBKT  &kp UNDER &kp COMMA &kp DOT  &kp FSLH &kp QMARK
+										   &kp LBKT &kp LBRC  &kp RBRC &kp RBKT &kp UNDER	 &none &none 	&none 	  &none 	&none
 			>;
 		};
 		
