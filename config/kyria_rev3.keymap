@@ -9,48 +9,31 @@
 #include <dt-bindings/zmk/bt.h>
 
 // LAYERS
-#define QWERTY  	0
-#define COLEMAKDH   1
+#define COLEMAKDH  	0
+#define QWERTY   	1
 #define NAV    		2
 #define NUM    		3
 #define SYM    		4
 #define FUNC   		5
 
-&mt {
-  tapping-term-ms = <250>;
-  flavor = "tap-preferred";
-};
-
 / {
+
+	behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        qwerty_layer {
-			/*
-			* Base Layer: QWERTY
-			*
-			* ,-------------------------------------------.                               ,-------------------------------------------.
-			* |  Tab   |   Q  |   W  |   E  |   R  |   T  |                               |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
-			* |--------+------+------+------+------+------|                               |------+------+------+------+------+--------|
-			* |LShift/ |   A  |   S  |   D  |Shift/|   G  |                               |   H  |Shift/|   K  |   L  | ;  : |  ' "   |
-			* |  Esc   |      |      |      |   F  |      |								  |      |   J  |      |      |      |        |
-			* |--------+------+------+------+------+------+--------------.  ,-------------+------+------+------+------+------+--------|
-			* | Ctrl   |   Z  |   X  |   C  |   V  |   B  | [ {  | CAPS  |  |VolMut|  ] } |   N  |   M  | ,  < | . >  | /  ? | Enter  |
-			* `----------------------+------+------+------+------+------ |  |------+------+------+------+------+----------------------'
-			*                        |LGUI  | LALT | FUNC |NUM/SP|Nav/RET|  | Sym  | Space| BSPC | TAB  | RGUI |
-			*                        `-----------------------------------'  `----------------------------------'
-			*/
-			bindings = <
-				&kp TAB   	   &kp Q    &kp W   &kp E 	 &kp R 	      &kp T              	               	                 	    &kp Y    &kp U   	   &kp I     &kp O   &kp P    &kp BSPC
-				&mt LSHIFT ESC &kp A    &kp S   &kp D 	 &mt LSHIFT F &kp G              	               	                 	    &kp H    &mt LSHIFT J  &kp K     &kp L   &kp SEMI &kp APOS
-				&kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp V 	      &kp B    &kp LBKT  	  &kp CAPS     	&kp C_MUTE &kp RBKT 	&kp N    &kp M   	   &kp COMMA &kp DOT &kp FSLH &kp RET
-												&kp LGUI &kp LALT     &mo FUNC &lt NUM SPACE  &lt NAV RET  	&mo SYM    &kp SPACE    &kp BSPC &kp TAB 	   &kp RGUI
-			>;
-			label = "QWERTY";
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-		
-		colemak-dh_layer {
+        colemak-dh_layer {
 			/*
 			* Base Layer: COLEMAK-DH
 			*
@@ -67,11 +50,36 @@
 			*/
 			bindings = <
 				&kp TAB   	   &kp Q    &kp W   &kp F 	 &kp P 	      &kp B              	               	                 	    &kp J    &kp L   	   &kp U     &kp Y   &kp SEMI &kp BSPC
-				&mt LSHIFT ESC &kp A    &kp R   &kp S 	 &mt LSHIFT T &kp G              	               	                 	    &kp M    &mt LSHIFT N  &kp E     &kp I   &kp O 	  &kp APOS
+				&hm LSHIFT ESC &kp A    &kp R   &kp S 	 &hm LSHIFT T &kp G              	               	                 	    &kp M    &hm LSHIFT N  &kp E     &kp I   &kp O 	  &kp APOS
 				&kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp D 	      &kp V    &kp LBKT  	  &kp CAPS     	&kp C_MUTE &kp RBKT 	&kp K    &kp H   	   &kp COMMA &kp DOT &kp FSLH &kp RET
 												&kp LGUI &kp LALT     &mo FUNC &lt NUM SPACE  &lt NAV RET  	&mo SYM    &kp SPACE    &kp BSPC &kp TAB 	   &kp RGUI
 			>;
 			label = "COLEMAK-DH";
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+		
+		qwerty_layer {
+			/*
+			* Base Layer: QWERTY
+			*
+			* ,-------------------------------------------.                               ,-------------------------------------------.
+			* |  Tab   |   Q  |   W  |   E  |   R  |   T  |                               |   Y  |   U  |   I  |   O  |   P  |  Bksp  |
+			* |--------+------+------+------+------+------|                               |------+------+------+------+------+--------|
+			* |LShift/ |   A  |   S  |   D  |Shift/|   G  |                               |   H  |Shift/|   K  |   L  | ;  : |  ' "   |
+			* |  Esc   |      |      |      |   F  |      |								  |      |   J  |      |      |      |        |
+			* |--------+------+------+------+------+------+--------------.  ,-------------+------+------+------+------+------+--------|
+			* | Ctrl   |   Z  |   X  |   C  |   V  |   B  | [ {  | CAPS  |  |VolMut|  ] } |   N  |   M  | ,  < | . >  | /  ? | Enter  |
+			* `----------------------+------+------+------+------+------ |  |------+------+------+------+------+----------------------'
+			*                        |LGUI  | LALT | FUNC |NUM/SP|Nav/RET|  | Sym  | Space| BSPC | TAB  | RGUI |
+			*                        `-----------------------------------'  `----------------------------------'
+			*/
+			bindings = <
+				&kp TAB   	   &kp Q    &kp W   &kp E 	 &kp R 	      &kp T              	               	                 	    &kp Y    &kp U   	   &kp I     &kp O   &kp P    &kp BSPC
+				&hm LSHIFT ESC &kp A    &kp S   &kp D 	 &hm LSHIFT F &kp G              	               	                 	    &kp H    &hm LSHIFT J  &kp K     &kp L   &kp SEMI &kp APOS
+				&kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp V 	      &kp B    &kp LBKT  	  &kp CAPS     	&kp C_MUTE &kp RBKT 	&kp N    &kp M   	   &kp COMMA &kp DOT &kp FSLH &kp RET
+												&kp LGUI &kp LALT     &mo FUNC &lt NUM SPACE  &lt NAV RET  	&mo SYM    &kp SPACE    &kp BSPC &kp TAB 	   &kp RGUI
+			>;
+			label = "QWERTY";
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 		
@@ -104,9 +112,9 @@
 			 * Num Layer: Numpad layer
 			 *
 			 * ,-------------------------------------------.                              ,-------------------------------------------.
-			 * |        |      |   ↑  |      |      |      |                              |   /  |  7   |  8   |  9   |  -   |  Bksp  |
+			 * |        |      |      |   ↑  |      |      |                              |   /  |  7   |  8   |  9   |  -   |  Bksp  |
 			 * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
-			 * |        |  ←   |   ↓  |   →  |      |      |                              |   *  |  4   |  5   |  6   |  +   |        |
+			 * |        |      |  ←   |   ↓  |   →  |      |                              |   *  |  4   |  5   |  6   |  +   |        |
 			 * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
 			 * |        |  GUI |  Alt | Ctrl | Shift|      |      |      |  |      |      |   =  |  1   |  2   |  3   | ENTER|        |
 			 * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
@@ -115,8 +123,8 @@
 			 *                        `----------------------------------'  `----------------------------------'
 			 */
 			bindings = <
-			  &none &none      &kp UP    &none     &none      &none                                  &kp FSLH  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp MINUS &kp BSPC 
-			  &none &kp LEFT   &kp DOWN  &kp RIGHT &none      &none                                  &kp ASTRK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp PLUS  &none
+			  &none &none      &none     &kp UP    &none      &none                                  &kp FSLH  &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp MINUS &kp BSPC 
+			  &none &none 	   &kp LEFT  &kp DOWN  &kp RIGHT  &none                                  &kp ASTRK &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp PLUS  &none
 			  &none &kp LGUI   &kp LALT  &kp LCTRL &kp LSHIFT &none &none &none 	 &none &none 	 &kp EQUAL &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp RET   &none
 										 &none     &none 	  &none &none &none	 	 &none &kp KP_N0 &kp COMMA &none 	 &none
 			>;
@@ -140,7 +148,7 @@
 			 */
 			bindings = <
 			  &kp TILDE &kp N1   		&kp N2   	 &kp N3   		&kp N4    		 &kp N5                                 	    &kp N6    &kp N7    &kp N8    &kp N9   &kp N0   &kp EQUAL 
-			  &kp GRAVE &mt LGUI EXCL 	&mt LALT AT  &mt LCTRL HASH &mt LSHIFT DLLR  &kp PRCNT                                		&kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp PLUS
+			  &kp GRAVE &hm LGUI EXCL 	&hm LALT AT  &hm LCTRL HASH &hm LSHIFT DLLR  &kp PRCNT                                		&kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp PLUS
 			  &kp PIPE  &kp BSLH 		&kp COLON 	 &kp SEMI 		&kp MINUS 		 &kp LBKT &kp LBRC &kp EQUAL	 &none &kp RBRC &kp RBKT  &kp UNDER &kp COMMA &kp DOT  &kp FSLH &kp QMARK
 													 &kp LBKT 		&kp LBRC  		 &kp RBRC &kp RBKT &kp UNDER	 &none &none 	&none 	  &none 	&none
 			>;
