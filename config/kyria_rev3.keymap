@@ -28,6 +28,17 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+		
+		hml: homerow_mods_left {
+			compatible = "zmk,behavior-hold-tap";
+            flavor = "balanced"; 
+			tapping-term-ms = <280>; 
+			quick-tap-ms = <175>; 
+			global-quick-tap; 
+			bindings = <&kp>, <&kp>; 
+			hold-trigger-key-positions = <16>; 
+			hold-trigger-on-release; 
+        };
     };
 
     keymap {
@@ -50,7 +61,7 @@
 			*/
 			bindings = <
 				&kp TAB   	   &kp Q    &kp W   &kp F 	 &kp P 	      &kp B              	               	                 	    &kp J    &kp L   	   &kp U     &kp Y   &kp SEMI &kp BSPC
-				&hm LSHIFT ESC &kp A    &kp R   &kp S 	 &hm LSHIFT T &kp G              	               	                 	    &kp M    &hm LSHIFT N  &kp E     &kp I   &kp O 	  &kp APOS
+				&hm LSHIFT ESC &kp A    &kp R   &kp S 	 &hml LSHIFT T &kp G              	               	                 	    &kp M    &hm LSHIFT N  &kp E     &kp I   &kp O 	  &kp APOS
 				&kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp D 	      &kp V    &kp LBKT  	  &kp CAPS     	&kp C_MUTE &kp RBKT 	&kp K    &kp H   	   &kp COMMA &kp DOT &kp FSLH &kp RET
 												&kp LGUI &kp LALT     &mo FUNC &lt NUM SPACE  &lt NAV RET  	&mo SYM    &kp SPACE    &kp BSPC &kp TAB 	   &kp RGUI
 			>;
