@@ -16,7 +16,45 @@
 #define SYM    		4
 #define FUNC   		5
 
+#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
+  combo_##NAME { \
+    timeout-ms = <50>; \
+    bindings = <BINDINGS>; \
+    key-positions = <KEYPOS>; \
+    layers = <LAYERS>; \
+  };
+
+
 / {
+
+	combos {
+		compatible = "zmk,combos";
+		/*
+		  KEY POSITIONS
+		  ╭────────────────────────╮                 ╭────────────────────────╮
+		  │ 0   1   2   3   4   5  │                 │ 6   7   8   9   10  11 │
+		  │ 12  13  14  15  16  17 ╰───────╮ ╭───────╯ 18  19  20  21  22  23 │
+		  │ 24  25  26  27  28  29  30  31 │ │ 32  33  34  35  36  37  38  39 │
+		  ╰───────────╮ 40  41  42  43  44 │ │ 45  46  47  48  49 ╭───────────╯
+					  ╰────────────────────╯ ╰────────────────────╯
+		*/
+		
+		//Left
+		COMBO(lbrc,2 3,&kp LBRC,COLEMAKDH)
+		COMBO(rbrc,3 4,&kp RBRC,COLEMAKDH)
+		COMBO(lpar,14 15,&kp LPAR,COLEMAKDH)
+		COMBO(rpar,15 16,&kp RPAR,COLEMAKDH)
+		COMBO(lbkt,26 27,&kp LBKT,COLEMAKDH)
+		COMBO(rbkt,27 28,&kp RBKT,COLEMAKDH)
+		
+		//Right
+		COMBO(minus,7 8,&kp MINUS,COLEMAKDH)
+		COMBO(under,8 9,&kp UNDER,COLEMAKDH)
+		COMBO(astrk,19 20,&kp ASTRK,COLEMAKDH)
+		COMBO(equal,20 21,&kp EQUAL,COLEMAKDH)
+		COMBO(less,35 36,&kp LT,COLEMAKDH)
+		COMBO(grtr,36 37,&kp GT,COLEMAKDH)
+	};
 
 	behaviors {
         hm: homerow_mods {
