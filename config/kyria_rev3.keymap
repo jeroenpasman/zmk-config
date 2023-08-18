@@ -53,19 +53,20 @@
 			* ,-------------------------------------------.                               ,-------------------------------------------.
 			* |  Tab   |   Q  |   W  |   F  |   P  |   B  |                               |   J  |   L  |   U  |   Y  | ;  : |  Bksp  |
 			* |--------+------+------+------+------+------|                               |------+------+------+------+------+--------|
-			* |LShift/ |   A  |   R  |   S  |   T  |   G  |                               |   M  |   N  |   E  |   I  |   O  |  ' "   |
-			* |  Esc   |      |      |      |      |      |								  |      |      |      |      |      |        |
+			* |LShift/ |   A  |   R  |   S  |   T  |   G  |                               |   M  |   N  |   E  |   I  |   O  |RShift/ |
+			* |  Esc   |      |      |      |      |      |								  |      |      |      |      |      |  ' "   |
 			* |--------+------+------+------+------+------+--------------.  ,-------------+------+------+------+------+------+--------|
 			* | Ctrl   |   Z  |   X  |   C  |   D  |   V  | [ {  | CAPS  |  |VolMut|  ] } |   K  |   H  | ,  < | . >  | /  ? | Enter  |
 			* `----------------------+------+------+------+------+------ |  |------+------+------+------+------+----------------------'
-			*                        |LGUI  | LALT | FUNC |NUM/SP|Nav/RET|  | Sym  | Space| BSPC | TAB  | RGUI |
+			*                        |      |      |      |NUM/  | Nav   |  |      |      |      |      |      |
+			*                        |LGUI  | LALT | FUNC |  SP  |  RET  |  | Sym  | Space| BSPC | TAB  | RGUI |
 			*                        `-----------------------------------'  `----------------------------------'
 			*/
 			bindings = <
 				&kp TAB   	   &kp Q    &kp W   &kp F 	 &kp P 	      &kp B              	               	                 	    	   &kp J    &kp L   	&kp U     &kp Y   &kp SEMI &kp BSPC
-				&hm LSHIFT ESC &kp A    &kp R   &kp S 	 &kp T 		  &kp G              	               	                 	    	   &kp M    &kp N  		&kp E     &kp I   &kp O    &kp APOS
+				&hm LSHIFT ESC &kp A    &kp R   &kp S 	 &kp T 		  &kp G              	               	                 	    	   &kp M    &kp N  		&kp E     &kp I   &kp O    &hm RSHIFT APOS
 				&kp LCTRL 	   &kp Z    &kp X   &kp C 	 &kp D 	      &kp V    &kp LBKT  	  &kp CAPS     	&kp C_MUTE &kp RBKT 		   &kp K    &kp H   	&kp COMMA &kp DOT &kp FSLH &kp RET
-												&kp LGUI &kp LALT     &mo FUNC &lt NUM SPACE  &lt NAV RET  	&mo SYM    &hm LSHIFT SPACE    &kp BSPC &kp TAB 	&kp RGUI
+												&kp LGUI &kp LALT     &mo FUNC &lt NUM SPACE  &lt NAV RET  	&mo SYM    &kp SPACE		   &kp BSPC &kp TAB 	&kp RGUI
 			>;
 			label = "COLEMAK-DH";
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -83,7 +84,8 @@
 			* |--------+------+------+------+------+------+--------------.  ,-------------+------+------+------+------+------+--------|
 			* | Ctrl   |   Z  |   X  |   C  |   V  |   B  | [ {  | CAPS  |  |VolMut|  ] } |   N  |   M  | ,  < | . >  | /  ? | Enter  |
 			* `----------------------+------+------+------+------+------ |  |------+------+------+------+------+----------------------'
-			*                        |LGUI  | LALT | FUNC |NUM/SP|Nav/RET|  | Sym  | Space| BSPC | TAB  | RGUI |
+			*						 |      |      |      |NUM/  | Nav   |  |      |      |      |      |      |
+			*                        |LGUI  | LALT | FUNC |  SP  |  RET  |  | Sym  | Space| BSPC | TAB  | RGUI |
 			*                        `-----------------------------------'  `----------------------------------'
 			*/
 			bindings = <
