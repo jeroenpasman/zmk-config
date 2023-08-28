@@ -111,7 +111,7 @@
 												&kp LGUI &kp LALT     &mo FUNC &lt NUM SPACE  &lt NAV RET  	&mo SYM    &kp SPACE		   &kp BSPC &kp TAB 	&kp RGUI
 			>;
 			label = "COLEMAK-DH";
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 		
 		qwerty_layer {
